@@ -1,21 +1,74 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import HomePage from './Pages/HomePage';
+import Characters from './Pages/Characters';
+import Locations from './Pages/Locations';
+import Episodes from './Pages/Episodes';
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+   <NavigationContainer>
+     <Stack.Navigator screenOptions={{headerShown: false}} >
+       <Stack.Screen
+       name="HomePage"
+       component={HomePage}
+       />
+
+      <Stack.Screen
+      options={{
+        headerShown: true, 
+        headerStyle:{
+          backgroundColor: "black"
+        },
+        headerTintColor: "orange", 
+        headerTitleStyle:{
+          fontWeight: "bold", 
+          fontSize: 35,
+        }
+      }}
+      name="Characters"
+      component={Characters}
+      />
+
+      <Stack.Screen
+      options={{
+        headerShown: true, 
+        headerStyle:{
+          backgroundColor: "black"
+        },
+        headerTintColor: "orange", 
+        headerTitleStyle:{
+          fontWeight: "bold", 
+          fontSize: 35,
+        }
+      }}
+      name="Locations"
+      component={Locations}
+      />
+
+      <Stack.Screen
+      options={{
+        headerShown: true, 
+        headerStyle:{
+          backgroundColor: "black"
+        },
+        headerTintColor: "orange", 
+        headerTitleStyle:{
+          fontWeight: "bold", 
+          fontSize: 35,
+        }
+      }}
+      name="Episodes"
+      component={Episodes}
+      />
+
+     </Stack.Navigator>
+
+   </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+
